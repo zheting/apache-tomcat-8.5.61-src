@@ -146,7 +146,12 @@ public class StringManager {
             //      a null check.
             str = null;
         }
-
+        //解决乱码问题
+        try {
+            str = new String(str.getBytes("ISO-8859-1"), "UTF-8");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return str;
     }
 
